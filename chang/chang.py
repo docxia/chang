@@ -187,13 +187,70 @@ while T4<nrows:
             print(T4);
     T4=T4+1
 T4X
+len(T3X)
 #T3
 T3=1
 T3X=[]
 while T3<nrows:
     if T3 in T4X:
         print(T3)
-    elif "浸润至浆膜下层" in col[15]:
+    elif "T3N" in col[15][T3]:
         T3X.append(T3)
-     
-
+    elif "浸润至浆膜下层" in col[15][T3]:
+        T3X.append(T3)
+    elif "浸润至浆膜层" in col[15][T3]:
+        T3X.append(T3)
+    elif "浸润肠壁全层" in col[15][T3]:
+        T3X.append(T3)
+    elif "浸润肠壁全层至浆膜下层" in col[15][T3]:
+        T3X.append(T3)    
+    elif "癌组织浸润至肠壁浆膜层" in col[15][T3]:
+        T3X.append(T3)    
+    T3=T3+1
+T3X
+len(T3X)
+#T2
+T2=1
+T2X=[]
+while T2<nrows:
+    if T2 in T4X:
+        print(T2)
+    elif T2 in T3X:
+        print(T2)
+    elif "浸润至浅肌层" in col[15][T2]:
+        T2X.append(T2)
+    elif "浸润至深肌层" in col[15][T2]:
+        T2X.append(T2)
+    elif "浸润肠壁深肌层" in col[15][T2]:
+        T2X.append(T2)
+    elif "浸润肠壁深肌层" in col[15][T2]:
+        T2X.append(T2)
+    elif "浸润至外纵肌层" in col[15][T2]:
+        T2X.append(T2)
+    elif "浸润至内环肌层" in col[15][T2]:
+        T2X.append(T2)
+    elif "浸润至肌层" in col[15][T2]:
+        T2X.append(T2)
+    elif "浸润肠壁浅肌层" in col[15][T2]:
+        T2X.append(T2)
+    T2=T2+1 
+T2X
+len(T2X)
+#T1
+T1=1
+T1X=[]
+while T1<nrows:
+    if T1 in T4X:
+        print(T1)
+    elif T1 in T3X:
+        print(T1)
+    elif T1 in T2X:
+        print(T1)
+    elif "T1N" in col[15][T1]:
+        T1X.append(T1) 
+    elif "浸润至粘膜下层" in col[15][T1]:
+        T1X.append(T1) 
+    elif "癌组织主要位于粘膜层" in col[15][T1]:
+        T1X.append(T1)  
+    elif "浸润至粘膜下层" in col[15][T1]:
+        T1X.append(T1) 
