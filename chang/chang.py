@@ -157,6 +157,7 @@ while colnamber<ncols:
     print(col[colnamber+1])
     colnamber=colnamber+1   #设置连续变量名结束
 col[13] #查看第十三行变量
+#T浸润深度的分期
 #T4
 T4=1
 T4X=[]
@@ -277,7 +278,24 @@ while Tis<nrows:
 Tis=Tis+1
 TisX
 len(TisX)
-#T4a
-
 #T4b
+T4bX=[]
+for T4b in T4X:
+    if "T4b" in col[15][T4b]:
+        T4bX.append(T4b)
+    elif "局部浸润至" in col[15][T4b]:
+        T4bX.append(T4b)
+    elif "侵至" in col[15][T4b]:
+        T4bX.append(T4b)
+    elif "系膜内见癌" in col[15][T4b]:
+        T4bX.append(T4b)
+    elif "全层并部分累" in col[15][T4b]:
+        T4bX.append(T4b)
+T4bX
+len(T4bX)
+#T4a
+T4aX=list(set(T4X).difference(set(T4bX))) # 取差集（前者为主集合，后者为排除的集合）
+len(T4aX)
 
+#N肿瘤淋巴结的分期
+#
