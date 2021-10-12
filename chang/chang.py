@@ -253,4 +253,29 @@ while T1<nrows:
     elif "癌组织主要位于粘膜层" in col[15][T1]:
         T1X.append(T1)  
     elif "浸润至粘膜下层" in col[15][T1]:
-        T1X.append(T1) 
+        T1X.append(T1)
+    T1=T1+1
+T1X
+len(T1X)  
+#Tis
+Tis=1
+TisX=[]
+while Tis<nrows:
+    if Tis in T4X:
+        print(Tis)
+    elif Tis in T3X:
+        print(Tis)
+    elif Tis in T2X:
+        print(Tis)
+    elif Tis in T1X:
+        print(Tis)
+    elif "局限于粘膜层" in col[15][Tis]:
+        TisX.append(Tis)
+    elif "局限于粘膜下层" in col[15][Tis]:
+        TisX.append(Tis)
+    Tis=Tis+1
+Tis=Tis+1
+TisX
+len(TisX)
+
+
