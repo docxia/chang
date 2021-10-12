@@ -162,29 +162,33 @@ col[13] #查看第十三行变量
 T4=1
 T4X=[]
 while T4<nrows:
-    if "腹膜结节" in col[13][T4]:
+    if "T4" in col[13][T4]:
         T4X.append(T4);
-    elif "侵犯腹膜组织" in col[13][T4]:
+    elif "腹膜结节" in col[15][T4]:
         T4X.append(T4);
-    elif "系膜结节" in col[13][T4]:
+    elif "侵犯腹膜组织" in col[15][T4]:
         T4X.append(T4);
-    elif "穿透肠壁并累及" in col[13][T4]:
+    elif "系膜结节" in col[15][T4]:
         T4X.append(T4);
-    elif "T4" in col[13][T4]:
+    elif "穿透肠壁并累及" in col[15][T4]:
         T4X.append(T4);
-    elif "全层" in col[13][T4]:
+    elif "）见癌侵犯" in col[15][T4]:
+        T4X.append(T4);
+    elif "）浆液性囊肿，并见低分化腺癌侵犯" in col[15][T4]:
+        T4X.append(T4);    
+    if "全层" in col[13][T4]:
         print(T4)
-        if "并突破浆膜层" in col[13][T4]:
+        if "并突破浆膜层" in col[15][T4]:
             T4X.append(T4);
-        elif "未突破浆膜层" in col[13][T4]:
+        elif "未突破浆膜层" in col[15][T4]:
             print(T4);        
-        elif "突破浆膜层" in col[13][T4]:
+        elif "突破浆膜层" in col[15][T4]:
             T4X.append(T4);
-        elif "肿物向下累及齿状线"  in col[13][T4]:
+        elif "肿物向下累及齿状线"  in col[15][T4]:
             T4X.append(T4);
-        elif "神经见癌侵犯" in col[13][T4]:
+        elif "神经见癌侵犯" in col[15][T4]:
             T4X.append(T4);
-        elif "切缘未见癌累及" in col[13][T4]:
+        elif "切缘未见癌累及" in col[15][T4]:
             print(T4);
     T4=T4+1
 T4X
@@ -274,13 +278,17 @@ while Tis<nrows:
         TisX.append(Tis)
     elif "局限于粘膜下层" in col[15][Tis]:
         TisX.append(Tis)
+    elif "粘膜内癌" in col[15][Tis]:
+        TisX.append(Tis)
+    elif "粘液腺癌" in col[15][Tis]:
+        TisX.append(Tis)
     Tis=Tis+1
-Tis=Tis+1
 TisX
 len(TisX)
 #T4b
 T4bX=[]
-for T4b in T4X:
+T4b=1
+while T4b<nrows:
     if "T4b" in col[15][T4b]:
         T4bX.append(T4b)
     elif "局部浸润至" in col[15][T4b]:
@@ -291,7 +299,7 @@ for T4b in T4X:
         T4bX.append(T4b)
     elif "全层并部分累" in col[15][T4b]:
         T4bX.append(T4b)
-T4bX
+    T4b=T4b+1 
 len(T4bX)
 #T4a
 T4aX=list(set(T4X).difference(set(T4bX))) # 取差集（前者为主集合，后者为排除的集合）
