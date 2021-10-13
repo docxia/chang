@@ -306,4 +306,69 @@ T4aX=list(set(T4X).difference(set(T4bX))) # 取差集（前者为主集合，后
 len(T4aX)
 
 #N肿瘤淋巴结的分期
-#
+#淋巴节计数
+N=1
+
+#副程序
+t=1
+#N2b
+N2b=[]
+while t<nrows:
+    z=NX[t]
+    if "N2b" in col[15][t]:
+        N2b.append(t)
+    elif z>=7:
+        N2b.append(t)
+    t+=1
+t=1
+#N2a
+N2a=[]
+while t<nrows:
+    z=NX[t]
+    if "N2a" in col[15][t]:
+        N2a.append(t)
+    elif z in range(4, 7):
+        N2a.append(t)
+    t+=1
+#N1a
+N1a=[]
+while t<nrows:
+    z=NX[t]
+    if "N1a" in col[15][t]:
+        N1a.append(t)
+    elif z==1:
+        N1a.append(t)
+    t+=1
+#N1c
+N1c=[]
+while t<nrows:
+    z=NX[t]
+    if "N1c" in col[15][t]:
+        N1c.append(t)
+    elif z==1:
+        print(z)
+        if "直肠周围软组织内卫星肿瘤结节" in col[15][t]:
+            N1c.append(t)
+        ###
+    t+=1
+#N1b
+t=1
+N1b=[]
+while t<nrows:
+    z=NX[t]
+    if "N1b" in col[15][t]:
+        N1b.append(t)
+    elif z==1:
+        print(z)
+        if z not in N1c:
+            N1b.append(t)
+    t+=1
+#N0
+N0=[]
+t=1
+while t<t<nrows:
+    z=NX[t]
+    if "N0" in col[15][t]:
+        N1a.append(t)
+    elif t==0:
+        N1a.append(t)
