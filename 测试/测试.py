@@ -1,13 +1,9 @@
-import re
-ff="132/112,淋巴节"
-ff1=
-
-
-
-while t<nrows:
-    z=NX[t]
-    if "N2a" in col[15][t]:
-        N2a.append(t)
-    elif z in range(4, 7):
-        N2a.append(t)
-    t+=1
+hhg="子宫，卵巢，小肠， 肺，肝"
+k=0
+if "子宫" in hhg:
+    k=k+1
+    print(k)
+if "卵巢" in hhg:
+    k=k+1
+    print(k)
+k

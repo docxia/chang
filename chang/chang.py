@@ -405,5 +405,53 @@ while tx<nrows:
     elif tx==0:
         N1a.append(tx)
     tx+=1 
-#hahah#
 
+#M分期
+#M1开始
+#M1
+M1cX=[]
+tx=1
+while tx<nrows:
+    if "M1c" in col[15][tx]:
+        M1cX.append(tx)
+    elif "系膜淋巴结见癌" in col[15][tx]:
+        M1cX.append(tx)
+    elif "大网膜）见中"  in col[15][tx]:
+        M1cX.append(tx)
+    tx+=1
+#M1b
+#以累计值的方式算评价危险系数
+
+M1bX=[]
+tx=1
+M1aX=[]
+while tx<nrows:
+    if tx in M1cX:
+        M1bX.append(tx)
+    elif "M1b" in col[15][tx]:
+        M1bX.append(tx)
+    elif "M1a" in col[15][tx]:
+        M1aX.append(tx)
+        k=0
+        if "癌组织转移至（" in col[15][tx]:
+            k+=2
+        if "均见转移性" in col[15][tx]:
+            k+=2
+        if "卵巢）中分" in col[15][tx]:
+            k+=1
+        if "小肠）中分" in col[15][tx]:
+            k+=1
+        if "盆壁肿物）中分" in col[15][tx]:
+            k+=1
+        if "均见转移性" in col[15][tx]:
+            k+=1
+        ###
+        if k==1:
+            M1aX.append(tx)
+        if k>1:
+            M1bX.append(tx)
+         
+
+    
+    
+    
