@@ -1,4 +1,6 @@
 #适用于老版本的病理查询系统
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 import xlrd
 import xlwt
 from xlutils.copy import copy
@@ -314,7 +316,7 @@ len(T4aX)
 #N肿瘤淋巴结的分期
 #淋巴结计数模块
 import re 
-N=1
+N=0
 NX=[]
 while N<nrows:
     ff1=re.findall(r'\d+/',col[15][N])
@@ -336,68 +338,72 @@ while N<nrows:
     NX.append(total)
     N+=1
 NX #为每个样本的淋巴转移之和的集
-NX=NX.index(max(NX))
-
+len(NX)
+NX[1]
+col[15][1]
 #副程序
-t=1
+tx=1
 #N2b
 N2b=[]
-while t<nrows:
-    z=NX[t]
-    if "N2b" in col[15][t]:
-        N2b.append(t)
-    elif z>=7:
-        N2b.append(t)
-    t+=1
-t=1
+while tx<len(NX):
+    if "N2b" in col[15][tx]:
+        N2b.append(tx)
+    if (NX[tx] > 6):
+        N2b.append(tx)
+    tx=tx+1
+tx=1
 #N2a
 N2a=[]
-while t<nrows:
-    z=NX[t]
-    if "N2a" in col[15][t]:
-        N2a.append(t)
+while tx<nrows:
+    z=NX[tx]
+    if "N2a" in col[15][tx]:
+        N2a.append(tx)
     elif z in range(4, 7):
-        N2a.append(t)
-    t+=1
+        N2a.append(tx)
+    tx+=1
 #N1a
 N1a=[]
+tx=1
 while t<nrows:
-    z=NX[t]
-    if "N1a" in col[15][t]:
-        N1a.append(t)
+    z=NX[tx]
+    if "N1a" in col[15][tx]:
+        N1a.append(tx)
     elif z==1:
-        N1a.append(t)
-    t+=1
+        N1a.append(tx)
+    tx+=1
 #N1c
 N1c=[]
-while t<nrows:
-    z=NX[t]
-    if "N1c" in col[15][t]:
-        N1c.append(t)
+tx=1
+while tx<nrows:
+    z=NX[tx]
+    if "N1c" in col[15][tx]:
+        N1c.append(tx)
     elif z==1:
         print(z)
-        if "直肠周围软组织内卫星肿瘤结节" in col[15][t]:
-            N1c.append(t)
-        ###
-    t+=1
+        if "直肠周围软组织内卫星肿瘤结节" in col[15][tx]:
+            N1c.append(tx)       
+    tx+=1
 #N1b
-t=1
+tx=1
 N1b=[]
-while t<nrows:
-    z=NX[t]
-    if "N1b" in col[15][t]:
-        N1b.append(t)
+while tx<nrows:
+    z=NX[tx]
+    if "N1b" in col[15][tx]:
+        N1b.append(tx)
     elif z==1:
         print(z)
         if z not in N1c:
-            N1b.append(t)
-    t+=1
+            N1b.append(tx)
+    tx+=1
 #N0
 N0=[]
-t=1
-while t<t<nrows:
-    z=NX[t]
-    if "N0" in col[15][t]:
-        N1a.append(t)
-    elif t==0:
-        N1a.append(t)
+tx=1
+while tx<nrows:
+    z=NX[tx]
+    if "N0" in col[15][tx]:
+        N1a.append(tx)
+    elif tx==0:
+        N1a.append(tx)
+    tx+=1 
+#hahah#
+
