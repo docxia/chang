@@ -451,7 +451,9 @@ while tx<nrows:
         if k>1:
             M1bX.append(tx)
 
-#sss#
+#癌栓有无
+
+
          
 
     
