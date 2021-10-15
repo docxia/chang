@@ -418,6 +418,14 @@ while tx<nrows:
         M1cX.append(tx)
     elif "大网膜）见中"  in col[15][tx]:
         M1cX.append(tx)
+    elif "大网膜见癌"  in col[15][tx]:
+        M1cX.append(tx)
+    elif "大网膜）见多个癌结节"  in col[15][tx]:
+        M1cX.append(tx)
+    elif "小肠系膜内见" in col[15][tx]:
+        M1cX.append(tx)
+    elif "大肠系膜内见" in col[15][tx]:
+        M1cX.append(tx)
     tx+=1
 #M1b
 #以累计值的方式算评价危险系数
@@ -427,7 +435,7 @@ tx=1
 M1aX=[]
 while tx<nrows:
     if tx in M1cX:
-        M1bX.append(tx)
+        print(tx)
     elif "M1b" in col[15][tx]:
         M1bX.append(tx)
     elif "M1a" in col[15][tx]:
@@ -435,7 +443,15 @@ while tx<nrows:
         k=0
         if "癌组织转移至（" in col[15][tx]:
             k+=2
-        if "均见转移性" in col[15][tx]:
+        if "均见癌" in col[15][tx]:
+            k+=2   
+        if ")均见" in col[15][tx]:
+            k+=2
+        if "）见浆液性腺癌" in col[15][tx]:
+            k+=2
+        if "）见癌累及" in col[15][tx]:
+            k+=2
+        if "）见癌转移" in col[15][tx]:
             k+=2
         if "卵巢）中分" in col[15][tx]:
             k+=1
@@ -443,9 +459,55 @@ while tx<nrows:
             k+=1
         if "盆壁肿物）中分" in col[15][tx]:
             k+=1
-        if "均见转移性" in col[15][tx]:
+        if ("结肠" in col[15][tx]) & ("直肠" in col[15][tx]):
             k+=1
-        ###
+        if "浸润至宫颈" in col[15][tx]:
+            k+=1
+        if "）转移性腺癌" in col[15][tx]:
+            k+=2
+        if "子宫浆膜面见癌" in col[15][tx]:
+            k+=1
+        if "及宫颈管见癌" in col[15][tx]:
+            k+=2
+        if "）送检组织均见癌" in col[15][tx]:
+            k+=2
+        if "卵巢内见癌累" in col[15][tx]:
+            k+=1
+        if "乙状结肠与子宫间肿物）中分化腺癌" in col[15][tx]:
+            k+=1
+        if "子宫）中分化" in col[15][tx]:
+            k+=1
+        if "子宫旁结节）送检组织见癌" in col[15][tx]:
+            k+=1
+        if "小肠）缝线处见癌浸润" in col[15][tx]:
+            k+=1
+        
+        if "内见癌转移" in col[15][tx]:
+            k+=1    
+        if "段)转移性" in col[15][tx]:
+            k+=1  
+        if "肝转移腺癌" in col[15][tx]:
+            k+=1
+        if "（肝）见癌转移" in col[15][tx]:
+            k+=1
+        if "肝曲)中分化" in col[15][tx]:
+            k+=1
+        if "（肝曲、直肠）中分化腺癌" in col[15][tx]:
+            k+=1
+        if "肝脏肿物）中分" in col[15][tx]:
+            k+=1
+        if "肝曲)低分化" in col[15][tx]:
+            k+=1 
+        if "肝肿物）转移性" in col[15][tx]:
+            k+=1
+        if "段）符合" in col[15][tx]:
+            k+=1
+        if "及肝曲结肠）中分化腺癌" in col[15][tx]:
+            k+=1
+        if "肝脏结节）见腺癌" in col[15][tx]:
+            k+=1
+        if "肝肿物）中分化" in col[15][tx]:
+            k+=1
         if k==1:
             M1aX.append(tx)
         if k>1:
@@ -453,6 +515,7 @@ while tx<nrows:
 
 #癌栓有无
 
+#写入表格
 
          
 

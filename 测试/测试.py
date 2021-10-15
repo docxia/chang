@@ -7,3 +7,6 @@ if "卵巢" in hhg:
     k=k+1
     print(k)
 k
+
+if  ("子宫" in hhg) & ("卵巢" in hhg):
+    print("yes")
