@@ -513,12 +513,98 @@ while tx<nrows:
         if k>1:
             M1bX.append(tx)
 
+M0X=[]
+tx=1
+while tx<nrows:
+    if tx in M1cX:
+        M0X.append(tx)
+    tx=tx+1
 #癌栓有无
 
+
+# 写入
+workBook = xlrd.open_workbook("D:/chang/new.xls")
+workBook2= copy(workBook)
+sheet1 = workBook.sheets()[0]
+sheet2 = workBook2.get_sheet(0)
 #写入表格
-
-         
-
-    
+sheet2.write(0,17,"T")
+sheet2.write(0,18,"N")
+sheet2.write(0,19,"M")
+sheet2.write(0,20,"癌栓有无")
+sheet2.write(0,21,"神经侵犯")
+#T写入
+i=1
+while i<nrows:
+    if i in T4bX:
+        sheet2.write(i,17,"T4b")
+    elif i in T4aX:
+        sheet2.write(i,17,"T4a")
+    elif i in T3X:
+        sheet2.write(i,17,"T3")
+    elif i in T2X:
+        sheet2.write(i,17,"T2")
+    elif i in T1X:
+        sheet2.write(i,17,"T1")
+    i+=1
+#N写入
+i=1
+while i<nrows:
+    if i in N2b:
+        sheet2.write(i,18,"N2b")
+    elif i in N2a:
+        sheet2.write(i,18,"N2a")
+    elif i in N1a:
+        sheet2.write(i,18,"N1a")
+    elif i in N1b:
+        sheet2.write(i,18,"N1b") 
+    elif i in N1c:
+        sheet2.write(i,18,"N1c")
+    elif i in N0:
+        sheet2.write(i,18,"N0")
+    i+=1
+#M写入
+i=1
+while i<nrows:
+    if i in M1bX:
+        sheet2.write(i,19,"M1b")
+    elif i in M1cX:
+        sheet2.write(i,19,"M1c")
+    elif i in M1aX:
+        sheet2.write(i,19,"M1a") 
+#癌栓转移有无
+#癌栓是否有
+i2=1
+while i2<nrows:
+    aishuan=col15[i2]
+    if "癌栓" not in aishuan:
+        sheet2.write(i2,20,"不明")
+    elif "未见癌栓" in aishuan:
+        sheet2.write(i2,20,"无")
+    elif "未见明确癌栓" in aishuan:
+        sheet2.write(i2,20,"无")
+    else:
+        sheet2.write(i2,20,"有")    
+    i2=i2+1
+#神经侵犯
+i4=1
+while i4<nrows:
+    shenjin=col21[i4]
+    if "神经未见癌侵犯" in shenjin:
+        sheet2.write(i4,21,"否")
+    elif "未见神经侵犯" in shenjin:
+        sheet2.write(i4,21,"否")
+    elif "神经未见明确" in shenjin:
+        sheet2.write(i4,21,"否")
+    elif "神经未查见" in shenjin:
+        sheet2.write(i4,21,"否")
+    elif "肿瘤侵犯神经" in shenjin:
+        sheet2.write(i4,21,"是")
+    else:
+        sheet2.write(i4,21,"不明")
+    i4=i4+1
+workBook2.save("D:/chang/newd.xls")
+vb.Save() #保存修改的文件
+vb.Close() # 做完后一定要关闭    
     
     
