@@ -183,6 +183,8 @@ while T4<nrows:
     elif "）见癌侵犯" in col[15][T4]:
         T4X.append(T4);
     elif "）浆液性囊肿，并见低分化腺癌侵犯" in col[15][T4]:
+        T4X.append(T4);
+    elif "累及肠壁全层" in col[15][T4]:
         T4X.append(T4);    
     if "全层" in col[13][T4]:
         print(T4)
@@ -209,13 +211,17 @@ while T3<nrows:
         print(T3)
     elif "T3N" in col[15][T3]:
         T3X.append(T3)
+    elif "至肠壁浆膜层" in col[15][T3]:
+        T3X.append(T3)
     elif "浸润至浆膜下层" in col[15][T3]:
         T3X.append(T3)
     elif "浸润至浆膜层" in col[15][T3]:
         T3X.append(T3)
     elif "浸润肠壁全层" in col[15][T3]:
         T3X.append(T3)
-    elif "浸润肠壁全层至浆膜下层" in col[15][T3]:
+    elif "浸润肠壁全层" in col[15][T3]:
+        T3X.append(T3)
+    elif "至肠壁浆膜层" in col[15][T3]:
         T3X.append(T3)    
     elif "癌组织浸润至肠壁浆膜层" in col[15][T3]:
         T3X.append(T3)    
@@ -306,6 +312,8 @@ while T4b<nrows:
     elif "系膜内见癌" in col[15][T4b]:
         T4bX.append(T4b)
     elif "全层并部分累" in col[15][T4b]:
+        T4bX.append(T4b)
+    elif "累及肠壁全层" in col[15][T4b]:
         T4bX.append(T4b)
     T4b=T4b+1 
 len(T4bX)
