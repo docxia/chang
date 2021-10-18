@@ -527,9 +527,6 @@ while tx<nrows:
     if tx in M1cX:
         M0X.append(tx)
     tx=tx+1
-#癌栓有无
-
-
 # 写入
 workBook = xlrd.open_workbook("D:/chang/new.xls")
 workBook2= copy(workBook)
