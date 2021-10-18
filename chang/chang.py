@@ -512,7 +512,7 @@ while tx<nrows:
             M1aX.append(tx)
         if k>1:
             M1bX.append(tx)
-
+    tx+=1
 M0X=[]
 tx=1
 while tx<nrows:
@@ -571,8 +571,10 @@ while i<nrows:
     elif i in M1cX:
         sheet2.write(i,19,"M1c")
     elif i in M1aX:
-        sheet2.write(i,19,"M1a") 
+        sheet2.write(i,19,"M1a")
+    i+=1    
 #癌栓转移有无
+col15=sheet1.col_values(14)
 #癌栓是否有
 i2=1
 while i2<nrows:
@@ -589,7 +591,7 @@ while i2<nrows:
 #神经侵犯
 i4=1
 while i4<nrows:
-    shenjin=col21[i4]
+    shenjin=col15[i4]
     if "神经未见癌侵犯" in shenjin:
         sheet2.write(i4,21,"否")
     elif "未见神经侵犯" in shenjin:
@@ -604,7 +606,6 @@ while i4<nrows:
         sheet2.write(i4,21,"不明")
     i4=i4+1
 workBook2.save("D:/chang/newd.xls")
-vb.Save() #保存修改的文件
-vb.Close() # 做完后一定要关闭    
+    
     
     
