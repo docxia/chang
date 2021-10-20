@@ -81,6 +81,8 @@ while i1<nrows:
         feijiezhichangai.append(i1) 
     elif "十二指肠" in col[11][i1]:
         feijiezhichangai.append(i1)
+    elif "残胃癌" in col[11][i1]:
+        feijiezhichangai.append(i1)    
     elif "阑尾" in col[11][i1]:
         feijiezhichangai.append(i1)
     elif "结肠" in col[10][i1]:
@@ -331,7 +333,7 @@ while N<nrows:
     k=len(ff1)
     i=0
     ff2=[]
-    while i<k:
+    while i<k:  #需要加上空值
         x=re.findall(r'\d+',ff1[i])
         ff2.append(x[0])
         i+=1
