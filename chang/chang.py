@@ -326,26 +326,29 @@ len(T4aX)
 #N肿瘤淋巴结的分期
 #淋巴结计数模块
 import re 
-N=0
+N=1
 NX=[]
 while N<nrows:
-    ff1=re.findall(r'\d+/',col[15][N])
-    k=len(ff1)
-    i=0
-    ff2=[]
-    while i<k:  #需要加上空值
-        x=re.findall(r'\d+',ff1[i])
-        ff2.append(x[0])
-        i+=1
-    ff2
-    ff2=list(map(int,ff2))
-    ele=0
-    total=0
-    while(ele<len(ff2)):
-        total=total+ff2[ele]
-        ele+=1
-    total
-    NX.append(total)
+    if "/" not in col[15][N]:
+          NX.append("")    
+    else: 
+         ff1=re.findall(r'\d+/',col[15][N])
+         k=len(ff1)
+         ff2=[]
+         i=0
+         while i<k:
+                x=re.findall(r'\d+',ff1[i])
+                ff2.append(x[0])
+                i+=1
+         ff2
+         ff2=list(map(int,ff2))
+         ele=0
+         total=0
+         while(ele<len(ff2)):
+             total=total+ff2[ele]
+             ele+=1
+             total
+         NX.append(total)
     N+=1
 NX #为每个样本的淋巴转移之和的集
 len(NX)
@@ -358,14 +361,16 @@ N2b=[]
 while tx<len(NX):
     if "N2b" in col[15][tx]:
         N2b.append(tx)
-    if (NX[tx] > 6):
+    elif NX[tx-1]=="":
+       print('NO')
+    elif (NX[tx-1] > 6):
         N2b.append(tx)
     tx=tx+1
 tx=1
 #N2a
 N2a=[]
 while tx<nrows:
-    z=NX[tx]
+    z=NX[tx-1]
     if "N2a" in col[15][tx]:
         N2a.append(tx)
     elif z in range(4, 7):
@@ -375,7 +380,7 @@ while tx<nrows:
 N1a=[]
 tx=1
 while t<nrows:
-    z=NX[tx]
+    z=NX[tx-1]
     if "N1a" in col[15][tx]:
         N1a.append(tx)
     elif z==1:
@@ -385,22 +390,26 @@ while t<nrows:
 N1c=[]
 tx=1
 while tx<nrows:
-    z=NX[tx]
+    z=NX[tx-1]
     if "N1c" in col[15][tx]:
         N1c.append(tx)
-    elif z==1:
+    elif z>1 & z<4:
         print(z)
-        if "直肠周围软组织内卫星肿瘤结节" in col[15][tx]:
-            N1c.append(tx)       
+        if "肠系膜淋巴结见" in col[15][tx]:
+            N1c.append(tx)
+        elif "其中肠管周围淋巴结" in col[15][tx]:
+            N1c.append(tx) 
+        elif "浸润至肠壁外" in col[15][tx]:
+            N1c.append(tx)    
     tx+=1
 #N1b
 tx=1
 N1b=[]
 while tx<nrows:
-    z=NX[tx]
+    z=NX[tx-1]
     if "N1b" in col[15][tx]:
         N1b.append(tx)
-    elif z==1:
+    elif z>1 & z<4:
         print(z)
         if z not in N1c:
             N1b.append(tx)
@@ -409,7 +418,7 @@ while tx<nrows:
 N0=[]
 tx=1
 while tx<nrows:
-    z=NX[tx]
+    z=NX[tx-1]
     if "N0" in col[15][tx]:
         N0.append(tx)
     elif z==0:
