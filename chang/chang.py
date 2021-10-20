@@ -409,11 +409,10 @@ tx=1
 while tx<nrows:
     z=NX[tx]
     if "N0" in col[15][tx]:
-        N1a.append(tx)
-    elif tx==0:
-        N1a.append(tx)
+        N0.append(tx)
+    elif z==0:
+        N0.append(tx)
     tx+=1 
-
 #M分期
 #M1开始
 #M1
@@ -610,7 +609,4 @@ while i4<nrows:
     else:
         sheet2.write(i4,21,"不明")
     i4=i4+1
-workBook2.save("D:/chang/newd.xls")
-    
-    
-    
+workBook2.save("D:/chang/newd.xls")            
