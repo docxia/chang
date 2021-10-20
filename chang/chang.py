@@ -326,26 +326,29 @@ len(T4aX)
 #N肿瘤淋巴结的分期
 #淋巴结计数模块
 import re 
-N=0
+N=1
 NX=[]
 while N<nrows:
-    ff1=re.findall(r'\d+/',col[15][N])
-    k=len(ff1)
-    i=0
-    ff2=[]
-    while i<k:  #需要加上空值
-        x=re.findall(r'\d+',ff1[i])
-        ff2.append(x[0])
-        i+=1
-    ff2
-    ff2=list(map(int,ff2))
-    ele=0
-    total=0
-    while(ele<len(ff2)):
-        total=total+ff2[ele]
-        ele+=1
-    total
-    NX.append(total)
+    if "/" not in col[15][N]:
+          NX.append("")    
+    else: 
+         ff1=re.findall(r'\d+/',col[15][N])
+         k=len(ff1)
+         ff2=[]
+         i=0
+         while i<k:
+             x=re.findall(r'\d+',ff1[i])
+             ff2.append(x[0])
+             i+=1
+             ff2
+             ff2=list(map(int,ff2))
+             ele=0
+             total=0
+         while(ele<len(ff2)):
+             total=total+ff2[ele]
+             ele+=1
+             total
+             NX.append(total)
     N+=1
 NX #为每个样本的淋巴转移之和的集
 len(NX)
