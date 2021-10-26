@@ -37,7 +37,7 @@ row1 = sheet1.row_values(0);   # 获取第1行内容
 print(row1)
 colnamber=0
 col=[None]*ncols #设置连续变量名
-while colnamber<ncols:
+while colnamber<ncols-1:
     col[colnamber+1] =  sheet1.col_values(colnamber);
     print(col[colnamber+1])
     colnamber=colnamber+1
