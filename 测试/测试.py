@@ -47,3 +47,35 @@ k=len(ff1)
              i+=1
          ff2
          ff2=list(map(int,ff2))
+
+
+x = []*6 #设置连续变量名
+col=1
+while col<7:
+    x[col] = '';
+    print(x[col])
+    col+=1
+x1=[]
+gh="x"+str(1)
+class test(object):
+t = test()
+
+for i in range(1, 11):
+
+setattr(t, "a" + str(i), [])
+
+print t.__dict__
+
+print t.a1
+gh
+i=1
+while i<4:
+
+    x[i]=
+    i=i+1
+
+n = 3
+for i in range(1, n+1):
+    exec("lst%s =[[] for _ in range(1)]"% (i, n))
+for i in range(1,11):
+    exec( 'a%s = []' % i)

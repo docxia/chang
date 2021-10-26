@@ -54,12 +54,9 @@ while i<nrows:
     if sex[i]=="女":
         woman.append(i)
     i+=1
-x1=[]
-x2=[]
-x3=[]
-x4=[]
-x5=[]
-x6=[]
+#连续创造多个空集
+for e in range(1,7):
+    exec( 'x%s = []' % e)
 i=1
 while i<nrows:
     if "鳞状细胞癌" in name[i]:
@@ -83,7 +80,7 @@ z5=[]
 z6=[]
 i=1
 xx=0
-while i<nrows-1:
+while i<nrows:
     if old[i] != "":
         xx=int(old[i])
     if xx>0 & xx<7:
@@ -127,3 +124,60 @@ p1=plt.bar(name_list,num_list,width,color="#87CEFA")
 plt.show()
 
 #显示所有疾病的数量分布性别比
+import matplotlib.pyplot as plt
+import numpy as np
+plt.figure(figsize=(10, 10), dpi=200)
+plt.rcParams['font.sans-serif'] = ['SimHei'] # 步骤一（替换sans-serif字体）
+plt.rcParams['axes.unicode_minus'] = False   # 步骤二（解决坐标轴负数的负号显示问题）
+i=1
+x1m=[]
+x1w=[]
+x2m=[]
+x2w=[]
+x3m=[]
+x3w=[]
+x4m=[]
+x4w=[]
+x5m=[]
+x5w=[]
+x6m=[]
+x6w=[]
+while i<nrows:
+    if (i in man) & (i in x1):
+          x1m.append(i)
+    elif (i in woman) & (i in x1):
+          x1w.append(i)
+    elif (i in man) & (i in x2):
+          x2m.append(i)
+    elif (i in woman) & (i in x2):
+          x2w.append(i)
+    elif (i in man) & (i in x3):
+          x3m.append(i)
+    elif (i in woman) & (i in x3):
+          x3w.append(i) 
+    elif (i in man) & (i in x4):
+          x4m.append(i)
+    elif (i in woman) & (i in x4):
+          x4w.append(i)
+    elif (i in man) & (i in x5):
+          x5m.append(i)
+    elif (i in woman) & (i in x5):
+          x5w.append(i)
+    elif (i in man) & (i in x6):
+          x6m.append(i)
+    elif (i in woman) & (i in x6):
+          x6w.append(i) 
+    i+=1
+inc=np.arange(6)
+sc=[len(x1m),len(x2m),len(x3m),len(x4m),len(x5m),len(x6m)]
+ss=[len(x1w),len(x2w),len(x3w),len(x4w),len(x5w),len(x6w)]
+plt.yticks(np.arange(0, 76, 15)) #0到76 间隔15
+plt.ylabel('number')
+plt.xticks(inc,("鳞状细胞癌","Warthin瘤","腺样囊性癌",\
+    "成釉细胞瘤","含牙囊肿","鳃裂囊肿"))
+plt.bar(inc, sc, label='male',fc = 'b')  
+plt.bar(inc, ss , label='female',bottom=sc,fc = 'r')
+plt.legend()  # 给图像加上图例
+plt.show()
+
+#显示所有疾病的数量分布年龄比利
