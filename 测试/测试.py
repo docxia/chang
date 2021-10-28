@@ -79,3 +79,31 @@ for i in range(1, n+1):
     exec("lst%s =[[] for _ in range(1)]"% (i, n))
 for i in range(1,11):
     exec( 'a%s = []' % i)
+
+x=[1,2,3,4,5,56]
+z=[2,4,0,9,89,6]
+for i in x:
+    if i in z:
+        print(i)
+ks=[]
+len(ks)
+
+for i4 in range(1,7):
+    exec( 'zx3%s = []' % i4)
+
+for i4 in range(7,13):
+    exec( 'zx4%s = []' % i4)
+
+import matplotlib.pyplot as plt
+import numpy as np
+plt.figure(figsize=(10, 10), dpi=200)
+plt.rcParams['font.sans-serif'] = ['SimHei'] # 步骤一（替换sans-serif字体）
+plt.rcParams['axes.unicode_minus'] = False   # 步骤二（解决坐标轴负数的负号显示问题）
+x1=[4,5,6]
+x3=[3,4,5]
+x2=[1,2,3]
+plt.yticks(np.arange(0, 76, 15)) #0到76 间隔15
+plt.ylabel('number')
+plt.xticks(inc,("鳞状细胞癌","Warthin瘤","腺样囊性癌"))
+
+

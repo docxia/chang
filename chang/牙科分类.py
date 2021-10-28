@@ -181,3 +181,111 @@ plt.legend()  # 给图像加上图例
 plt.show()
 
 #显示所有疾病的数量分布年龄比利
+import matplotlib.pyplot as plt
+import numpy as np
+plt.figure(figsize=(10, 10), dpi=200)
+plt.rcParams['font.sans-serif'] = ['SimHei'] # 步骤一（替换sans-serif字体）
+plt.rcParams['axes.unicode_minus'] = False   # 步骤二（解决坐标轴负数的负号显示问题）
+for i0 in range(1,7):
+    exec( 'zx1%s = []' % i0)
+
+for i1 in x1:
+    if i1 in z1:
+        zx11.append(i1)
+    elif i1 in z2:
+        zx12.append(i1)
+    elif i1 in z3:
+        zx13.append(i1)
+    elif i1 in z4:
+        zx14.append(i1)
+    elif i1 in z5:
+        zx15.append(i1)
+    elif i1 in z6:
+        zx16.append(i1)
+
+for i0 in range(1,7):
+    exec( 'zx2%s = []' % i0)
+for i1 in x2:
+    if i1 in z1:
+        zx21.append(i1)
+    elif i1 in z2:
+        zx22.append(i1)
+    elif i1 in z3:
+        zx23.append(i1)
+    elif i1 in z4:
+        zx24.append(i1)
+    elif i1 in z5:
+        zx25.append(i1)
+    elif i1 in z6:
+        zx26.append(i1)        
+for i0 in range(1,7):
+    exec( 'zx3%s = []' % i0)
+for i1 in x3:
+    if i1 in z1:
+        zx31.append(i1)
+    elif i1 in z2:
+        zx32.append(i1)
+    elif i1 in z3:
+        zx33.append(i1)
+    elif i1 in z4:
+        zx34.append(i1)
+    elif i1 in z5:
+        zx35.append(i1)
+    elif i1 in z6:
+        zx36.append(i1)    
+for i0 in range(1,7):
+    exec( 'zx4%s = []' % i0) 
+for i1 in x4:
+    if i1 in z1:
+        zx41.append(i1)
+    elif i1 in z2:
+        zx42.append(i1)
+    elif i1 in z3:
+        zx43.append(i1)
+    elif i1 in z4:
+        zx44.append(i1)
+    elif i1 in z5:
+        zx45.append(i1)
+    elif i1 in z6:
+        zx46.append(i1)
+for i0 in range(1,7):
+    exec( 'zx5%s = []' % i0) 
+for i1 in x5:
+    if i1 in z1:
+        zx51.append(i1)
+    elif i1 in z2:
+        zx52.append(i1)
+    elif i1 in z3:
+        zx53.append(i1)
+    elif i1 in z4:
+        zx54.append(i1)
+    elif i1 in z5:
+        zx55.append(i1)
+    elif i1 in z6:
+        zx56.append(i1)
+for i0 in range(1,7):
+    exec( 'zx4%s = []' % i0) 
+for i1 in x6:
+    if i1 in z1:
+        zx61.append(i1)
+    elif i1 in z2:
+        zx62.append(i1)
+    elif i1 in z3:
+        zx63.append(i1)
+    elif i1 in z4:
+        zx64.append(i1)
+    elif i1 in z5:
+        zx65.append(i1)
+    elif i1 in z6:
+        zx66.append(i1)        
+inc=np.arange(6)
+s1=[len(zx11),len(zx21),len(zx31),len(zx41),len(zx51),len(zx61)]
+s2=[len(zx12),len(zx22),len(zx32),len(zx42),len(zx52),len(zx62)]
+s3=[len(zx13),len(zx23),len(zx33),len(zx43),len(zx53),len(zx63)]
+s4=[len(zx14),len(zx24),len(zx34),len(zx44),len(zx54),len(zx64)]
+s5=[len(zx15),len(zx25),len(zx35),len(zx45),len(zx55),len(zx65)]
+s6=[len(zx16),len(zx26),len(zx36),len(zx46),len(zx56),len(zx66)]
+plt.yticks(np.arange(0, 76, 15)) #0到76 间隔15
+plt.ylabel('number')
+plt.xticks(inc,("鳞状细胞癌","Warthin瘤","腺样囊性癌",\
+    "成釉细胞瘤","含牙囊肿","鳃裂囊肿"))
