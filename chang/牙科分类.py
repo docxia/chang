@@ -83,15 +83,15 @@ xx=0
 while i<nrows:
     if old[i] != "":
         xx=int(old[i])
-    if xx>0 & xx<7:
+    if (xx>0) & (xx<7):
         z1.append(i)
-    elif xx>6 & xx<13:
+    elif (xx>6) & (xx<13):
         z2.append(i)    
-    elif xx>12 & xx<18:
+    elif (xx>12) & (xx<18):
         z3.append(i)
-    elif xx>19 & xx<46:
+    elif (xx>17) & (xx<46):
         z4.append(i)
-    elif xx>45 & xx<70:
+    elif (xx>45) & (xx<70):
         z5.append(i) 
     elif xx>69:
         z6.append(i)
@@ -264,7 +264,7 @@ for i1 in x5:
     elif i1 in z6:
         zx56.append(i1)
 for i0 in range(1,7):
-    exec( 'zx4%s = []' % i0) 
+    exec( 'zx6%s = []' % i0) 
 for i1 in x6:
     if i1 in z1:
         zx61.append(i1)
@@ -289,3 +289,12 @@ plt.yticks(np.arange(0, 76, 15)) #0到76 间隔15
 plt.ylabel('number')
 plt.xticks(inc,("鳞状细胞癌","Warthin瘤","腺样囊性癌",\
     "成釉细胞瘤","含牙囊肿","鳃裂囊肿"))
+#色彩转换代码https://html-color-codes.info/chinese/
+plt.bar(inc, s1, label='0-6' ,fc = '#F78181')  
+plt.bar(inc, s2, label='7-12',bottom=s1,fc = '#FE9A2E') 
+plt.bar(inc, s3, label='13-17',bottom=s2,fc = '#3ADF00')
+plt.bar(inc, s4, label='18-45',bottom=s3,fc = '#0431B4')
+plt.bar(inc, s5, label='45-69',bottom=s4,fc = '#5F04B4')
+plt.bar(inc, s6, label='70-',bottom=s5,fc = '#DF013A')
+plt.legend()  # 给图像加上图例
+plt.show()
