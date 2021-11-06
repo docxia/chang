@@ -386,22 +386,7 @@ while t<nrows:
     elif z==1:
         N1a.append(tx)
     tx+=1
-#N1c
-N1c=[]
-tx=1
-while tx<nrows:
-    z=NX[tx-1]
-    if "N1c" in col[15][tx]:
-        N1c.append(tx)
-    elif z>1 & z<4:
-        print(z)
-        if "肠系膜淋巴结见" in col[15][tx]:
-            N1c.append(tx)
-        elif "其中肠管周围淋巴结" in col[15][tx]:
-            N1c.append(tx) 
-        elif "浸润至肠壁外" in col[15][tx]:
-            N1c.append(tx)    
-    tx+=1
+
 #N1b
 tx=1
 N1b=[]
@@ -413,6 +398,18 @@ while tx<nrows:
         print(z)
         if z not in N1c:
             N1b.append(tx)
+    tx+=1
+#N1c
+N1c=[]
+tx=1
+while tx<nrows:
+    z=NX[tx-1]
+    if "N1c" in col[15][tx]:
+        N1c.append(tx)
+    elif (z not in N1b) and (z not in N1a):
+        print(z)
+        if "癌结节" in col[15][tx]:
+            N1c.append(tx)    
     tx+=1
 #N0
 N0=[]
