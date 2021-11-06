@@ -408,7 +408,7 @@ while tx<nrows:
         N1c.append(tx)
     elif (z not in N1b) and (z not in N1a):
         print(z)
-        if "癌结节" in col[15][tx]:
+        if ("癌结节" in col[15][tx]) and (z==0):
             N1c.append(tx)    
     tx+=1
 #N0
